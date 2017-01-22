@@ -18,6 +18,21 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="interface.cpp" />
+    <ClCompile Include="machine.cpp" />
+    <ClCompile Include="machine_instruction.cpp" />
+    <ClCompile Include="machine_simulator.cpp" />
+    <ClCompile Include="machine_tape.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="interface.h" />
+    <ClInclude Include="machine.h" />
+    <ClInclude Include="machine_instruction.h" />
+    <ClInclude Include="machine_simulator.h" />
+    <ClInclude Include="machine_tape.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BCD242DE-137B-45ED-89DF-EF37B55192FF}</ProjectGuid>
     <RootNamespace>Turing</RootNamespace>
@@ -109,8 +124,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
