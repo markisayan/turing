@@ -22,7 +22,7 @@ public:
 						const std::string & to_state,
 						const char from_symbol,
 						const char to_symbol,
-						const MachineInstruction::DIRECTION direction ) :
+						const DIRECTION direction) :
 							from_state_(from_state),
 							to_state_(to_state),
 							from_symbol_(from_symbol),

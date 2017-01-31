@@ -13,42 +13,60 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\interface">
+      <UniqueIdentifier>{32376268-b0f6-417e-bcab-76b55ab485ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\machine">
+      <UniqueIdentifier>{0145e097-e27a-40f5-a98a-b736653f1942}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="interface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="machine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="machine_simulator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="machine_tape.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="machine_instruction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="machine.cpp">
+      <Filter>Source Files\machine</Filter>
+    </ClCompile>
+    <ClCompile Include="machine_instruction.cpp">
+      <Filter>Source Files\machine</Filter>
+    </ClCompile>
+    <ClCompile Include="machine_simulator.cpp">
+      <Filter>Source Files\machine</Filter>
+    </ClCompile>
+    <ClCompile Include="machine_tape.cpp">
+      <Filter>Source Files\machine</Filter>
+    </ClCompile>
+    <ClCompile Include="all_interface.cpp">
+      <Filter>Source Files\interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="machine.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="machine_simulator.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="machine_tape.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\machine</Filter>
+    </ClInclude>
+    <ClInclude Include="machine.h">
+      <Filter>Source Files\machine</Filter>
     </ClInclude>
     <ClInclude Include="machine_instruction.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\machine</Filter>
     </ClInclude>
-    <ClInclude Include="interface.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="machine_simulator.h">
+      <Filter>Source Files\machine</Filter>
+    </ClInclude>
+    <ClInclude Include="all_interface.h">
+      <Filter>Source Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="execute_help.h">
+      <Filter>Source Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="execute_exit.h">
+      <Filter>Source Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="execute_add_instruction.h">
+      <Filter>Source Files\interface</Filter>
+    </ClInclude>
+    <ClInclude Include="execute_list_instructions.h">
+      <Filter>Source Files\interface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

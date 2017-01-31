@@ -16,8 +16,7 @@ std::string MachineTape::trim_tape_(std::string tape)
 	while (true) {
 		if (!tape.empty() && tape[tape.size() - 1] == '_') {
 			tape = tape.substr(0, tape.size() - 1);
-		}
-		else {
+		} else {
 			break;
 		}
 	}

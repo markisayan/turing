@@ -1,12 +1,18 @@
 #include "machine_simulator.h"
+#include "machine.h"
 #include <iostream>
 
 using namespace std;
 
 int main() {
+
+	Machine m;
+	m.start();
+
+	/*
 	MachineSimulator m;
 
-	MachineInstruction i1("q0", "p0", '*', '1', MachineInstruction::LEFT);
+	MachineInstruction i1("q0", "q1", '*', '1', MachineInstruction::LEFT);
 	MachineInstruction i2("q1", "q2", '_', '_', MachineInstruction::LEFT);
 	MachineInstruction i3("q2", "q3", '_', '_', MachineInstruction::LEFT);
 	MachineInstruction i4("q3", "q4", '_', '_', MachineInstruction::LEFT);
@@ -53,7 +59,7 @@ int main() {
 			i = m.next();
 		}
 	}
-	catch (runtime_error ex) {
+	catch (const runtime_error & ex) {
 		cout << ex.what() << endl;
 	}
 
@@ -61,5 +67,5 @@ int main() {
 
 
 	cout << "Done";
-
+	*/
 }

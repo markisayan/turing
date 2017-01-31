@@ -1,7 +1,6 @@
 #ifndef TURING_MACHINE_SIMULATOR
 #define TURING_MACHINE_SIMULATOR
 
-#pragma once
 #include "machine_instruction.h"
 #include "machine_tape.h"
 #include "machine_simulator.h"

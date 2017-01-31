@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <iterator>
 
-// This checks if there are going to be calls to states that weren't by user 
+// Checking if there are going to be calls to states that weren't by user 
 void MachineSimulator::check_for_nonexistent_state_calls_() {
 	std::set<std::string> res;
 
@@ -65,8 +65,7 @@ MachineInstruction MachineSimulator::next()
 		}
 	}
 
-
-	// This gets thrown if user haven't listed what to do in this case
+	// This gets thrown if user haven't listed what to do in case of the current state-symbol combination 
 	throw std::runtime_error("Machine ended unexpcetedly");
 }
 

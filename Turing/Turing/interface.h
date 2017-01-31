@@ -1,6 +1,0 @@
-#ifndef TURING_INTERFACE
-#define TURING_INTERFACE
-
-
-
-#endif

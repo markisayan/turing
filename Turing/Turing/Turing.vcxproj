@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="interface.cpp" />
+    <ClCompile Include="all_interface.cpp" />
     <ClCompile Include="machine.cpp" />
     <ClCompile Include="machine_instruction.cpp" />
     <ClCompile Include="machine_simulator.cpp" />
@@ -27,7 +27,11 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="interface.h" />
+    <ClInclude Include="all_interface.h" />
+    <ClInclude Include="execute_add_instruction.h" />
+    <ClInclude Include="execute_exit.h" />
+    <ClInclude Include="execute_help.h" />
+    <ClInclude Include="execute_list_instructions.h" />
     <ClInclude Include="machine.h" />
     <ClInclude Include="machine_instruction.h" />
     <ClInclude Include="machine_simulator.h" />
