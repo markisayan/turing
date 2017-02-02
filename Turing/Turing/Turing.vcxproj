@@ -28,10 +28,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="all_interface.h" />
-    <ClInclude Include="execute_add_instruction.h" />
-    <ClInclude Include="execute_exit.h" />
-    <ClInclude Include="execute_help.h" />
-    <ClInclude Include="execute_list_instructions.h" />
+    <ClInclude Include="cli_commands.h" />
     <ClInclude Include="machine.h" />
     <ClInclude Include="machine_instruction.h" />
     <ClInclude Include="machine_simulator.h" />

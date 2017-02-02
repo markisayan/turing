@@ -16,6 +16,7 @@ private:
 public:
 	MachineTape(): head_position_(0){}
 	void MachineTape::set_tape(std::string symbols);
+	std::string get_original_tape() const;
 	void reset_tape();
 	char get_current_symbol() const;
 	void set_current_symbol(const char symbol);
@@ -23,3 +24,5 @@ public:
 };
 
 #endif
+
+// :^)

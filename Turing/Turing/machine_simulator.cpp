@@ -24,7 +24,12 @@ void MachineSimulator::set_tape(const std::string & chars)
 	current_state_ = beginning_state_name_;
 }
 
-std::vector<MachineInstruction> const &  MachineSimulator::get_instructions() const {
+MachineTape MachineSimulator::get_tape() const
+{
+	return tape_;
+}
+
+const std::vector<MachineInstruction> & MachineSimulator::get_instructions() const {
 	return instructions_;
 }
 
@@ -32,6 +37,15 @@ void MachineSimulator::add_instruction(const MachineInstruction & instruction) {
 	instructions_.push_back(instruction);
 	from_states_.insert(instruction.get_from_state());
 	to_states_.insert(instruction.get_to_state());
+}
+
+void MachineSimulator::delete_instruction(const int index)
+{
+	if (index < 0 || index > instructions_.size() - 1) {
+		throw std::runtime_error("Wrong index");
+	}
+
+	instructions_.erase(instructions_.begin() + index);
 }
 
 std::set<std::string> const & MachineSimulator::get_from_states() const {
@@ -88,3 +102,5 @@ std::string MachineSimulator::get_ending_state_name() const
 {
 	return ending_state_name_;
 }
+
+// :^)

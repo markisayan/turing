@@ -56,16 +56,7 @@
     <ClInclude Include="all_interface.h">
       <Filter>Source Files\interface</Filter>
     </ClInclude>
-    <ClInclude Include="execute_help.h">
-      <Filter>Source Files\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="execute_exit.h">
-      <Filter>Source Files\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="execute_add_instruction.h">
-      <Filter>Source Files\interface</Filter>
-    </ClInclude>
-    <ClInclude Include="execute_list_instructions.h">
+    <ClInclude Include="cli_commands.h">
       <Filter>Source Files\interface</Filter>
     </ClInclude>
   </ItemGroup>

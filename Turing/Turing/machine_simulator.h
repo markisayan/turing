@@ -31,10 +31,12 @@ public:
 
 	std::vector<MachineInstruction> const & get_instructions() const;
 	void add_instruction(const MachineInstruction & instruction);
+	void delete_instruction(const int index);
 
 	std::set<std::string> const & get_from_states() const;
 
 	void set_tape(const std::string & chars);
+	MachineTape get_tape() const;
 
 	void set_beginning_state_name(const std::string & name);
 	std::string get_beginning_state_name() const;
@@ -48,3 +50,5 @@ public:
 };
 
 #endif
+
+// :^)

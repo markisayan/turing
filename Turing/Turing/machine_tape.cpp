@@ -30,6 +30,11 @@ void MachineTape::set_tape(std::string symbols){
 	working_tape_ = original_tape_ = symbols;
 }
 
+std::string MachineTape::get_original_tape() const
+{
+	return original_tape_;
+}
+
 void MachineTape::reset_tape() {
 	set_tape(original_tape_);
 }
@@ -126,3 +131,5 @@ void MachineTape::move_head(const MachineInstruction::DIRECTION dir)
 			break;
 	}
 }
+
+// :^)

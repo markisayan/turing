@@ -19,3 +19,5 @@ char MachineInstruction::get_to_symbol() const {
 MachineInstruction::DIRECTION MachineInstruction::get_direction() const {
 	return direction_;
 }
+
+// :^)

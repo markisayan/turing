@@ -14,3 +14,5 @@ Machine::Machine()
 		interface_ = new InterfaceLinuxCl(machine_simulator_);
 	#endif
 }
+
+// :^)
