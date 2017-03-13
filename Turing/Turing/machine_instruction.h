@@ -18,8 +18,9 @@ private:
 	char to_symbol_;
 	MachineInstruction::DIRECTION direction_;
 public:
-	MachineInstruction(	const std::string & from_state,
-						const std::string & to_state,
+	MachineInstruction() {}
+	MachineInstruction(	const std::string from_state,
+						const std::string to_state,
 						const char from_symbol,
 						const char to_symbol,
 						const DIRECTION direction) :
@@ -38,6 +39,8 @@ public:
 	char get_to_symbol() const;
 
 	DIRECTION get_direction() const;
+
+	bool operator ==(const MachineInstruction & a);
 
 
 };

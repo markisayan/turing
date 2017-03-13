@@ -35,6 +35,11 @@ std::string MachineTape::get_original_tape() const
 	return original_tape_;
 }
 
+std::string MachineTape::get_working_tape() const
+{
+	return working_tape_;
+}
+
 void MachineTape::reset_tape() {
 	set_tape(original_tape_);
 }
@@ -78,11 +83,15 @@ void MachineTape::reset_tape() {
 
 void MachineTape::set_current_symbol(const char symbol)
 {
-	if (head_position_ < 0) {
+	if (head_position_ <= 0) {
 		if(symbol != '_'){
 			std::string empty_space(abs(head_position_), '_');
 			working_tape_ = empty_space + working_tape_;
-			working_tape_[0] = symbol;
+			if (working_tape_.empty())
+				working_tape_.push_back(symbol);
+			else
+				working_tape_[0] = symbol;
+
 			head_position_ = 0;
 		}
 	}
@@ -104,8 +113,14 @@ void MachineTape::set_current_symbol(const char symbol)
 		}
 	}
 
-	working_tape_ = trim_tape_(working_tape_);
+	std::string k = working_tape_;
+	working_tape_ = trim_tape_(k);
 }
+
+	int MachineTape::get_head_position() const
+	{
+		return head_position_;
+	}
 
 char MachineTape::get_current_symbol() const
 {

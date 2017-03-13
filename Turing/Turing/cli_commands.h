@@ -52,6 +52,15 @@ public:
 };
 
 class ExecuteAddInstruction : public CommandOperation {
+private:
+	bool similar_exists(const MachineInstruction & new_instruction){
+
+		for (auto instruction : machine_simulator_->get_instructions()) 
+			if (instruction == new_instruction)
+				return false;
+		
+		return true;
+	}
 public:
 	ExecuteAddInstruction(TuringInterface		* interface1,
 		MachineSimulator	* machine_simulator,
@@ -106,9 +115,16 @@ public:
 		}
 
 		MachineInstruction instruction(from_state, to_state, from_symbol[0], to_symbol[0], dir);
+
+		if(similar_exists(instruction) == false)
+			throw std::runtime_error("Similar instruction already exists");
+
+
 		machine_simulator_->add_instruction(instruction);
 		interface_->show_message("Instruction added!", false);
 	}
+
+
 };
 
 class ExecuteDeleteInstruction : public CommandOperation {
@@ -259,14 +275,7 @@ public:
 
 	virtual void execute(const std::vector<std::string> & args) {
 		const std::string tape = machine_simulator_->get_tape().get_original_tape();
-		std::string spaced_tape;
-
-		for (int i = 0; i < tape.size(); i++) {
-			spaced_tape.push_back(tape[i]);
-			if (i < tape.size() - 1) {
-				spaced_tape.push_back(' ');
-			}
-		}
+		std::string spaced_tape = interface_->get_spaced_string(tape);
 
 		interface_->show_message("Tape: [ " + spaced_tape + " ]", false);
 	}
@@ -366,6 +375,25 @@ public:
 
 	virtual void execute(const std::vector<std::string> & args) {
 		interface_->show_message("Ending state name: '" + machine_simulator_->get_ending_state_name() + "'", false);
+	}
+};
+
+class ExecuteStartSimulation : public CommandOperation {
+public:
+	ExecuteStartSimulation(	TuringInterface		* interface1,
+							MachineSimulator	* machine_simulator,
+							CommandHandler		* command_handler)
+		: CommandOperation(
+			interface1,
+			machine_simulator,
+			command_handler,
+			"Start simulating the Turing Machine",
+			"",
+			0)
+	{}
+
+	virtual void execute(const std::vector<std::string> & args) {
+		interface_->start_simulation();
 	}
 };
 

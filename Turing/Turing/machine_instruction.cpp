@@ -20,4 +20,9 @@ MachineInstruction::DIRECTION MachineInstruction::get_direction() const {
 	return direction_;
 }
 
+bool MachineInstruction::operator==(const MachineInstruction & a)
+{
+	return from_state_ == a.from_state_ && from_symbol_ == a.from_symbol_;
+}
+
 // :^)

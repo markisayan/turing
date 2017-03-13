@@ -2,7 +2,7 @@
 
 void Machine::start()
 {
-	turing_interface_->start();
+	turing_interface_->start_handling_commands();
 }
 
 Machine::Machine() 
