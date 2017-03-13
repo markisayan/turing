@@ -9,13 +9,14 @@
 #include <iterator>
 #include <vector>
 
+const std::string VERSION = "v0.9";
+
 class MachineSimulator {
 private:
 	MachineTape tape_;
 
 	std::vector<MachineInstruction> instructions_;
 
-	// These are used to check for errors
 	std::set<std::string> from_states_;
 	std::set<std::string> to_states_;
 
@@ -24,10 +25,11 @@ private:
 	std::string beginning_state_name_;
 	std::string ending_state_name_;
 
+	// Error check
 	void check_for_nonexistent_state_calls_();
 	bool is_suitable_instruction_(const MachineInstruction & m) const;
 public:
-	MachineSimulator() : beginning_state_name_("BEG"), ending_state_name_("END"), current_state_("BEG") {};
+	MachineSimulator() : beginning_state_name_("beg"), ending_state_name_("end"), current_state_("beg") {};
 
 	std::vector<MachineInstruction> const & get_instructions() const;
 	void add_instruction(const MachineInstruction & instruction);

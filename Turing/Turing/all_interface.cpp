@@ -81,8 +81,9 @@ CommandHandler::CommandHandler(MachineSimulator * machine_simulator, TuringInter
 	register_command<ExecuteStartSimulation>("start");
 }
 
+
 void TuringInterfaceWinCl::start_handling_commands() {
-	show_message("Turing Machine Simulator v0.1", false);
+	show_message("Turing Machine Simulator " + VERSION, false);
 	show_message(std::string(50, '='), false);
 	show_message("Type 'help' for a list of commands", false);
 
@@ -113,7 +114,6 @@ void TuringInterfaceWinCl::show_message(std::string message, bool error = false)
 	std::cout << message << std::endl;
 }
 
-// TODO: Change this pls 
 void TuringInterfaceWinCl::show_table(TableData_T data)
 {
 	std::string line(89, '=');
@@ -194,23 +194,6 @@ std::string TuringInterfaceWinCl::get_tape_string(const int visible_tape_size, c
 	if (end < 0 || beg >= tape_size)
 		result += std::string(visible_tape_size, '_');
 
-	/*
-	HEADING UNDERSCORES
-	----------------------
-	If the part that is shown has pointer position that's < 0 we show "_" characters
-	before the tape
-
-	Ex:
-	tape: 1 2 3 3 4
-	visible tape size: 7
-	head position: 1
-
-	              v
-	Result: _ _ 1 2 3 3 4
-	*/
-
-	
-
 	result += "]";
 
 	return result;
@@ -232,7 +215,8 @@ void TuringInterfaceWinCl::start_simulation()
 
 	std::string
 		head_string,
-		tape_string;
+		tape_string,
+		direction;
 
 
 	// The tape gets reset and the position of the head is set to 0
@@ -262,6 +246,21 @@ void TuringInterfaceWinCl::start_simulation()
 
 		if ((clock() - last_update) / (double)CLOCKS_PER_SEC >= animation_update_time_) {
 			
+
+			
+			if (change_character == false) {
+				head_string = get_head_string(visible_tape_size);
+				head_position = machine_simulator_->get_tape().get_head_position();
+			}
+			else {
+				instruction = machine_simulator_->next();
+				
+				if (head_position < 0 && instruction.get_from_symbol() == '_' && instruction.get_to_symbol() != '_')
+					head_position = 0;
+			}
+
+			tape_string = get_spaced_string(get_tape_string(visible_tape_size, head_position));
+
 			// First of all we start rendering from the top of the screen
 			// So we set the cursor to the top of the screen
 			COORD coord = { 0 };
@@ -272,26 +271,39 @@ void TuringInterfaceWinCl::start_simulation()
 			std::cout << "Press 's' to stop" << std::endl;
 			std::cout << std::string(50, '=') << std::endl;
 
-			if (change_character == false) {
-				head_string = get_head_string(visible_tape_size);
-				head_position = machine_simulator_->get_tape().get_head_position();
-				
-			}
-			else {
-				instruction = machine_simulator_->next(); 
-				if (head_position < 0 && instruction.get_from_symbol() == '_' && instruction.get_to_symbol() != '_')
-					head_position = 0;
-			}
-
-			tape_string = get_spaced_string(get_tape_string(visible_tape_size, head_position));
-
 			std::cout << head_string << std::endl;
 			std::cout << tape_string << std::endl;
+			std::cout << "\nCurrently executing instruction: ";
 
+			if (instruction.get_to_state().empty()) {
+				std::cout << "<>" << std::endl;
+			}
+			else {
+
+				std::cout << "<" << instruction.get_from_state() << " ";
+				std::cout << instruction.get_to_state() << " ";
+				std::cout << instruction.get_from_symbol() << " ";
+				std::cout << instruction.get_to_symbol() << " ";
+
+				switch (instruction.get_direction()) {
+				case MachineInstruction::LEFT:
+					direction = "left";
+					break;
+				case MachineInstruction::RIGHT:
+					direction = "right";
+					break;
+				case MachineInstruction::STOP:
+					direction = "stop";
+					break;
+				}
+
+				std::cout << direction << ">" << std::string(30, ' ') << std::endl;
+			}
 			change_character = !change_character;
 
 			if (instruction.get_to_state() == machine_simulator_->get_ending_state_name()) {
-				std::cout << "Done!" << std::endl;
+				std::cout << "Done!" << std::endl << std::endl;
+				std::cout << "Resulting tape: " << machine_simulator_->get_tape().get_working_tape() << std::endl;
 				handle_input_ = true;
 				break;
 			}
