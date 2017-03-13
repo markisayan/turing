@@ -11,7 +11,7 @@ This program simulates such a machine. Also, there's a CLI built for it. You can
 |-------|----|----|
 |Clear| ```clear``` |Clear the screen |
 |Help| ```help``` | Show help message|
-|Info| ```info <command>``` | Get info on the command |
+|Info| ```info <command>``` | Get info on a command |
 |Add| ```add <from state> <to state> <from symbol> <to symbol> <direction l/r/s>``` | Add an instruction|
 |List| ```list``` | Show a numbered list of previously entered instructions |
 |Delete| ```delete <number>``` | Delete an instruction. Number can be found by using the previous command|
@@ -19,7 +19,7 @@ This program simulates such a machine. Also, there's a CLI built for it. You can
 |Showtape| ```showtape``` | Show the initial tape |
 |Showbeg| ```showbeg``` | Execution should start from a certain state. Show beginning state name |
 |Setbeg| ```setbeg <beginning state name>``` | Set a custom beginning state name. Default is "beg"
-|Showend| ```showend``` | When the machine reaches ending state, the execution stops. Shows the ending state name |
+|Showend| ```showend``` | When the machine reaches the ending state, the execution stops. Shows the ending state name |
 |Setend| ```setend <ending state name>```  | Set a custom ending state name |
 |Start| ```start``` | Start the simulation |
 
