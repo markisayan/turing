@@ -37,7 +37,7 @@ The files you are looking for are
   machine_tape.cpp
 ```
 
-They contain all the logic you need for creating a custom representation of the Turing machine
+They contain all the logic you need for integrating it in your own project
 
 ### Note
 I was planning to make separate interfaces for Linux and Mac, but kinda stopped after finishing the Windows one. So the CLI will only work under Windows, since it uses `Windows.h` library for animations and few other things.
